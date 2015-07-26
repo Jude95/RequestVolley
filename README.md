@@ -5,7 +5,7 @@
 功能都集中在`RequestManager`里面
 
 ##依赖
-`compile 'com.jude:requestvolly:1.0.0'`
+`compile 'com.jude:requestvolly:1.0.4'`
 
 在APP入口处调用  
 `RequestManager.getInstance().init(this);`  
