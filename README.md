@@ -12,6 +12,8 @@
 建议这样设置调试模式,所有的网络请求都将排上序号输出。调试模式神好用!!!  
 `RequestManager.getInstance().setDebugMode(BuildConfig.DEBUG,"net");`  
 ![log.png](log.png)
+调试模式会将所有PostGet请求参数与结果输出出来(Post会转成Get格式)。
+
 ##get/post简单调用
 `LoadController get(String url, RequestListener requestListener)`  
 `LoadController post(final String url, Object data, final RequestListener requestListener)`  
