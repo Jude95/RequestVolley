@@ -1,11 +1,11 @@
-# RequestVolly
-基于volly的网络请求库
+# RequestVolley
+基于volley的网络请求库
 
-因为volly用起来比较麻烦。封装一下函数式调用更加方便。是基于某个库(= =,已找不到出处)修改的。  
+因为volley用起来比较麻烦。封装一下函数式调用更加方便。是基于某个库(= =,已找不到出处)修改的。  
 功能都集中在`RequestManager`里面
 
 ##依赖
-`compile 'com.jude:requestvolly:1.0.4'`
+`compile 'com.jude:requestvolley:1.0.4'`
 
 在APP入口处调用  
 `RequestManager.getInstance().init(this);`  
@@ -43,18 +43,18 @@ post第二个参数，将调用`data.toString()`来获取post数据。
 注意默认是不开启缓存。避免缓存导致调试问题。这些为全局设置。get与post均允许发送特殊请求。  
 
 ##缓存机制 
-对volly的缓存机制作了些修改，volly源码中这一部分本来也是这个意思，但不知道为什么并没有完成，阉割了？  
+对volley的缓存机制作了些修改，volley源码中这一部分本来也是这个意思，但不知道为什么并没有完成，阉割了？  
 根据响应头头的`Cache-Control`字段中。`max-age=`表示有效时间，`soft-age=`表示新鲜时间。  
 在新鲜时间之前。只会读取缓存。  
 在新鲜时间与有效时间之间。会先读取缓存再网络请求。会返回2次。  
 超过有效时间。直接网络请求。  
 
-**另外貌似volly也支持https。也被阉割了。后期再试试完善https部分吧。**
+**另外貌似volley也支持https。也被阉割了。后期再试试完善https部分吧。**
 
 ##解析
 demo中的DataCallback<T>负责解析。用法很优雅。实现在demo里，本来想放进库里，但与项目耦合太高。网络库也并不负责解析。  
 
-        RequestManager.getInstance().post("https://apiview.com/test/408/RequestVolly/getPerson", null, new DataCallback<Person>() {
+        RequestManager.getInstance().post("https://apiview.com/test/408/RequestVolley/getPerson", null, new DataCallback<Person>() {
                     @Override
                     public void success(String info, Person data) {
                         tvPerson.setText(data.getName()+":"+data.getAge());
